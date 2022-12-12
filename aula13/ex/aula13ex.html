@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport">
+    <title>Exercício aula 13</title>
+</head>
+<body>
+    
+    <script>
+        const nome = 'Mariana da Silva Korb'//prompt('Digite seu nome completo:')
+        const tot = nome.replace(/\s/g,'').length 
+        const segundaLetra = nome[1]
+        const primeiroR = nome.indexOf('r')
+        const ultimoR = nome.lastIndexOf('r')
+        const ultTres = nome.slice(-3)
+        const asPalavras = nome.split(' ')
+        const maiusculas = nome.toUpperCase()
+        const minusculas = nome.toLowerCase()
+        
+        document.body.innerHTML += `Seu nome é: ${nome}<br />`
+        document.body.innerHTML += `Seu nome tem ${tot} letras <br />`
+        document.body.innerHTML += `A segunda letra do seu nome é: ${segundaLetra}<br />`
+        document.body.innerHTML += `Qual o primeiro índice da letra R no seu nome? ${primeiroR}<br />`
+        document.body.innerHTML += `Qual o último índice da letra R no seu nome? ${ultimoR}<br />`
+        document.body.innerHTML += `As últimas 3 letras do seu nome são: ${ultTres}<br />`
+        document.body.innerHTML += `As palavras do seu nome são: ${asPalavras}<br />`
+        document.body.innerHTML += `Seu nome com letras maiúsculas: ${maiusculas}<br />`
+        document.body.innerHTML += `Seu nome com letras minúsculas: ${minusculas}<br />`
+    </script>
+</body>
+</html>
