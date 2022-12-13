@@ -11,7 +11,7 @@ let inteiro = Number.isInteger(num)
 let notANumber = Number.isNaN(num)
 let toDown = Math.floor(num)
 let toUp = Math.ceil(num)
-let duasCasas = Number(num.toFixed(2))
+let duasCasas = num.toFixed(2)
 
 item.innerHTML = `<p>A raiz quadrada é: ${raiz}</p>`
 item.innerHTML += `<p>É inteiro? ${inteiro}</p>`
