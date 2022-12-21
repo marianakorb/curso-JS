@@ -1,9 +1,7 @@
-@charset "UTF-8";
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 :root {
-  --primary-color: rgb(17, 86, 102);
-  --primary-color-darker: rgb(9, 48, 56);
+  --primary-color: rgb(46, 194, 186);
+  --primary-color-darker: rgb(21, 104, 121);
 }
 
 * {
@@ -28,20 +26,31 @@ body {
   border-radius: 10px;
 }
 
+.titulo-coluna {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  columns: 2;
+}
+
 form input, form label, form button {
   display: block;
   width: 100%;
   margin-bottom: 10px;
+  border-radius: 3px;
 }
 
 form input {
   font-size: 24px;
   height: 50px;
   padding: 0 20px;
+  border: 1px solid var(--primary-color);
 }
 
 form input:focus {
-  outline: 1px solid var(--primary-color);
+  outline: 1px solid var(--primary-color-darker);
 }
 
 form button {
