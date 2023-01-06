@@ -8,6 +8,7 @@ function calcular() {
     const pesotexto = document.querySelector('#peso')
     const alturatexto = document.querySelector('#altura')
     let resultado = document.querySelector('div.resultado')
+    
     let res = ''
     const peso = Number(pesotexto.value)
     const altura = Number(alturatexto.value)
@@ -15,10 +16,6 @@ function calcular() {
     const imc1 = peso / altura ** 2
     const imc = imc1.toFixed(2)
 
-    if (pesotexto.value.length == 0 || alturatexto.value.length == 0) {
-        alert('Preencha os campos')
-    } 
-    
     if (imc <= 18.5) {
         res = 'Abaixo do peso'
     } else if (imc >= 18.6 && imc <= 24.9) {
@@ -34,12 +31,21 @@ function calcular() {
     } else {
         res = `MORRENDO`
     }
-    
-    if (!peso) {
+
+    if (alturatexto.value.length == 0 && pesotexto.value.length == 0) {
+        resultado.innerHTML = 'Preencha os campos'
+        resultado.classList.add('cordiv')
+        
+    } else if (!peso || pesotexto.value.length == 0) {
         resultado.innerHTML = 'Peso Inválido'
-    } else if (!altura) {
+        resultado.classList.add('cordiv')
+        
+    } else if (!altura || alturatexto.value.length == 0){
         resultado.innerHTML = 'Altura Inválida'
+        resultado.classList.add('cordiv')
+        
     } else {
         resultado.innerHTML = `Seu imc é ${imc}, você está ${res}`
+        resultado.classList.remove('cordiv')
     } 
 }

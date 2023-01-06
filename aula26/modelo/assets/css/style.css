@@ -67,3 +67,14 @@ form button {
 form button:hover {
   background: var(--primary-color-darker);
 }
+.cordiv {
+  background-color: rgb(216, 83, 83);
+  width: fit-content;
+  padding: 10px 20px;
+}
+
+.corIMC {
+  background-color: rgb(83, 216, 127);
+  width: fit-content;
+  padding: 10px 20px;
+}
