@@ -9,7 +9,7 @@ function setResultado(msg) {
     const resultado = document.querySelector('.resultado');
     resultado.innerHTML = '';
     const p = document.createElement('p');
-    p.classList.add('paragrafo-resultado');
-    p.innerHTML = msg;
-    resultado.appendChild(p);
+    p.classList.add('paragrafo-resultado'); // adiciona uma class no parágrafo
+    p.innerHTML = msg; // exibe a mensagem recebida pelo parâmetro
+    resultado.appendChild(p); 
 }
