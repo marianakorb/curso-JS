@@ -1,3 +1,6 @@
+/* const titulo = document.querySelector('.container h1')
+const data = new Date()
+
 function getSemanaTexto (diaSemana) {
     let diaSemanaTexto
 
@@ -72,12 +75,31 @@ function getMesTexto (nomeMes) {
     }
 }
 
-const data = new Date()
-const diaDaSemana = data.getDay
-const mesDoAno = data.getMonth
+function zeroAEsquerda(num) {
+    return num >= 10 ? num : `0${num}`
+}
 
-const semana = getSemanaTexto(diaDaSemana)
-const mes = getMesTexto(mesDoAno)
+function criaData (data) {
+    const diaDaSemana = data.getDay()
+    const mesDoAno = data.getMonth()
+    const dia = data.getDate()
+    const ano = data.getFullYear()
+    const hora = zeroAEsquerda(data.getHours())
+    const minutos = zeroAEsquerda(data.getMinutes())
+    const seg = zeroAEsquerda(data.getSeconds())
 
-//const titulo = document.querySelector('.container')
-titulo.inn= ''
+    const semana = getSemanaTexto(diaDaSemana)
+    const mes = getMesTexto(mesDoAno)  
+    
+    return (`${semana}, ${dia} de ${mes} de ${ano}, ${hora}:${minutos}:${seg}`)
+}
+
+titulo.innerHTML= criaData(data) */
+
+// MANEIRA SIMPLIFICADA:
+
+const h1 = document.querySelector('.container h1');
+const data = new Date();
+h1.innerHTML = data.toLocaleString('pt-BR', {
+    dateStyle: 'full', timeStyle: 'medium'
+})
