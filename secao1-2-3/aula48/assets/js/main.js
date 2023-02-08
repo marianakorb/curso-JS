@@ -41,7 +41,7 @@ bntTarefa.addEventListener('click', function(e) {
 function criaBotaoApagar(li) {
     li.innerText += '  '
     const botaoApagar = document.createElement('button') 
-    botaoApagar.innerText = 'Apagar'
+    botaoApagar.innerText = 'X'
     // setAttribute adiciona um atributo ao elemento ('o atributo', 'o valor do atributo')
     botaoApagar.setAttribute('class', 'apagar')
     botaoApagar.setAttribute('title', 'Apagar essa tarefa')
