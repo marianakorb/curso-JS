@@ -15,6 +15,7 @@ function criaTarefa(textoInput) {
     tarefas.appendChild(li)
     limpaInput()
     criaBotaoApagar(li)
+    salvarTarefas()
 }
 
 // Limpa o input e volta a focar o curso no input
@@ -55,6 +56,53 @@ document.addEventListener('click', function(e) {
     // se o que for cliclado contém a class 'apagar' executa o bloco
     if(elemento.classList.contains('apagar')) {
         elemento.parentElement.remove()
+        salvarTarefas()
     }
     
 })
+
+// Salvando as tarefas
+// - ver quantos li possui dentro das tarefas e pegar os textos deles
+// criar uma array com os textos de cada li
+// JSON.stringify() -> converter essa array em uma string única
+// para então poder armazená-la no localStorege do navegador usando JSON
+
+function salvarTarefas() {
+    // pegando os li de tarefas
+    const liTarefas = tarefas.querySelectorAll('li')
+    const listaDeTarefas = []
+
+    for(let tarefa of liTarefas) {
+        let tarefaTexto = tarefa.innerText
+        //substituindo o 'X' para espaço vazio
+        //trim() -> remove os espaços no final do texto
+        tarefaTexto = tarefaTexto.replace('X', '').trim()
+        listaDeTarefas.push(tarefaTexto)
+    }
+    //fazer com que a lista de tarefas vire uma string única
+    const tarefasJSON = JSON.stringify(listaDeTarefas)
+
+    // localStorage -> local no navegador onde vc pode salvar coisas (como se fosse uma mini base de dados)
+    localStorage.setItem('tarefas'/*Key*/, tarefasJSON /*Value*/) // aqui só se pode salvar strings
+    // 'tarefas' é o nome que será usado para recuperar de novo
+    // tarefasJSON é o valor de 'tarefas'
+    console.log(tarefasJSON)
+}
+
+// Ler as tarefas e jogar de volta na ul
+// pego as tarefas salvas usando a key 'tarefas'
+// para resgatar do localStorege usa get, para armazernar usa set
+// JSON.parse() -> converter a string em array novamente para usa-lá 
+// passar a array no laço de repetição para recriar cada tarefa na ul
+
+function adicionaTarefasSalvas() {
+    const tarefas = localStorage.getItem('tarefas') //'key'
+
+    //converter as tarefas de volta para um array
+    const listaDeTarefas = JSON.parse(tarefas)
+
+    for(let tarefa of listaDeTarefas) {
+        criaTarefa(tarefa)
+    }
+}
+adicionaTarefasSalvas()
