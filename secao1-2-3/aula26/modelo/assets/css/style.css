@@ -22,12 +22,21 @@ body {
   max-width: 640px;
   margin: 50px auto;
   background: #fff;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 10px;
 }
 
 .titulo-coluna {
   font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0px;
+  background-color: var(--primary-color-darker);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 ul {
